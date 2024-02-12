@@ -7,14 +7,17 @@ import (
 	"github.com/valyala/fasthttp"
 )
 
-func makeAPIRequest(baseURL string, uri string) *fasthttp.Response {
+func makeAPIRequest(uri string) *fasthttp.Response {
 	req := fasthttp.AcquireRequest()
-	url := fmt.Sprintf("%s/%s", baseURL, uri)
+	url := fmt.Sprintf("%s/%s", BaseUrl, uri)
 	log.Println(url)
 	req.SetRequestURI(url)
 
 	resp := fasthttp.AcquireResponse()
-	fasthttp.Do(req, resp)
+	err := fasthttp.Do(req, resp)
+	if err != nil {
+		fmt.Printf("Client get failed: %s\n", err)
+	}
 
 	return resp
 }

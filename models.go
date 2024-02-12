@@ -14,21 +14,21 @@ type SearchContentResponse struct {
 }
 
 type Latest struct {
-	Id uint64 `json:"id"`
+	Id        uint64 `json:"id"`
 	Timestamp string `json:"timestamp"`
 }
 
 type License struct {
-	Url string `json:"url"`
+	Url   string `json:"url"`
 	Title string `json:"title"`
 }
 
 type Page struct {
 	Id           uint    `json:"id"`
-	Key          string `json:"key"`
-	Title        string `json:"title"`
-	Latest Latest `json:"latest"`
-	ContentModel string `json:"content_model"`
-	License License `json:"license"`
-	HtmlUrl string `json:"html_url"`
+	Key          string  `json:"key"`
+	Title        string  `json:"title"`
+	Latest       Latest  `json:"latest"`
+	ContentModel string  `json:"content_model"`
+	License      License `json:"license"`
+	HtmlUrl      string  `json:"html_url"`
 }
